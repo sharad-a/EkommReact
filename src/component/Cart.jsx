@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
+import styles from './Cart.module.css'
+
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -36,7 +38,7 @@ const Cart = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className={`${styles['s-container']} container mx-auto px-4 py-8`}>
             <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
             {cartItems.map((item) => (
                 <div key={item._id} className="flex items-center justify-between mb-4 p-4 border rounded">

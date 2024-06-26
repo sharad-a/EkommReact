@@ -1,3 +1,4 @@
+import Footer from "./Footer"
 import Navbar from "./Navbar"
 
 
@@ -6,6 +7,8 @@ const NavbarProvider = ({children}) => {
     <div>
         <Navbar />
         {children}
+
+        <Footer />
     </div>
   )
 }
