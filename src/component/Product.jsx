@@ -1,6 +1,6 @@
 // Products.jsx
 import { useState, useEffect } from 'react';
-import { getProducts } from '../services/productService'; // Import the service
+import { getProducts } from '../services/productService'; 
 import ProductCard from './ProductCard';
 
 const Products = ({setCart,cart}) => {

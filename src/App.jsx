@@ -6,6 +6,7 @@ import Contact from "./component/Contact"
 import Login from "./component/Login"
 import { useEffect, useState } from "react"
 import Register from "./component/Rejister"
+import Cart from "./component/Cart"
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products cart={cart} setCart={setCart}/>} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login setUserId={setUserId}/>} />
         </Routes>
