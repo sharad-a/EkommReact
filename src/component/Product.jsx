@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import { getProducts } from '../services/productService'; // Import the service
 import ProductCard from './ProductCard';
 
-const Products = () => {
+const Products = ({setCart,cart}) => {
     const [products, setProducts] = useState([]);
-
+    
     useEffect(() => {
         const fetchProducts = async () => {
             try {
@@ -19,9 +19,25 @@ const Products = () => {
         fetchProducts(); // Call the function to fetch products
     }, []); // Empty dependency array to run once on mount
 
-    const addToCart = (productId) => {
-        // Implement add to cart logic here
-        console.log('Add to cart:', productId);
+    const addToCart = (product) => {
+      
+     let flag=0;
+     let product_initial={}
+     const updatedproduct=cart.map((u)=>{
+        if(u._id==product._id){
+            flag=1
+           return {...u,quantity:u.quantity+1}
+           
+        }else{
+            return u
+        }
+     })
+    setCart(updatedproduct);
+      if(!flag){
+      const quantity=1;
+      const sendProduct={...product,quantity}
+      setCart((prev)=>[...prev,sendProduct])
+      }
     };
 
     return (
