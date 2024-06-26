@@ -4,7 +4,7 @@ import jwtDecode from 'jwt-decode';
 
 class AuthService {
     async login(email, password) {
-        const response = await axios.post('http://localhost:5005/api/login', { email, password }, { withCredentials: true });
+        const response = await axios.post('http://localhost:5050/api/login', { email, password }, { withCredentials: true });
         return response.data;
     }
 
