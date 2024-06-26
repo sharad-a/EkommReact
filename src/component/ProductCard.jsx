@@ -9,7 +9,7 @@ const ProductCard = ({ product, addToCart }) => {
                 <p className="text-gray-700 mb-2">₹ {product.prodPrice}/-</p>
                 <button 
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    onClick={() => addToCart(product.id)}
+                    onClick={() => addToCart(product)}
                 >
                     Add to Cart
                 </button>
