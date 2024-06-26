@@ -1,5 +1,3 @@
-import Navbar from "./Navbar";
-
 const Home = () => {
     return (
         <div className="w-full min-h-screen flex flex-col">
