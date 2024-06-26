@@ -1,7 +1,7 @@
 // productService.js
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:5005/api/products';
+const apiUrl = 'http://localhost:5050/api/products';
 
 export const getProducts = async () => {
     try {

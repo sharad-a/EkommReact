@@ -1,9 +1,9 @@
 // Products.jsx
 import { useState, useEffect } from 'react';
-import { getProducts } from '../services/productService'; // Import the service
+import { getProducts } from '../services/productService';
 import ProductCard from './ProductCard';
 
-const Products = () => {
+const Products = ({ setCart, cart }) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -19,19 +19,35 @@ const Products = () => {
         fetchProducts(); // Call the function to fetch products
     }, []); // Empty dependency array to run once on mount
 
-    const addToCart = (productId) => {
-        // Implement add to cart logic here
-        console.log('Add to cart:', productId);
+    const addToCart = (product) => {
+
+        let flag = 0;
+        let product_initial = {}
+        const updatedproduct = cart.map((u) => {
+            if (u._id == product._id) {
+                flag = 1
+                return { ...u, quantity: u.quantity + 1 }
+
+            } else {
+                return u
+            }
+        })
+        setCart(updatedproduct);
+        if (!flag) {
+            const quantity = 1;
+            const sendProduct = { ...product, quantity }
+            setCart((prev) => [...prev, sendProduct])
+        }
     };
 
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {products.map(product => (
-                    <ProductCard 
-                        key={product.id} 
-                        product={product} 
-                        addToCart={addToCart} 
+                    <ProductCard
+                        key={product.id}
+                        product={product}
+                        addToCart={addToCart}
                     />
                 ))}
             </div>

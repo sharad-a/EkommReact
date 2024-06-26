@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 
 const Login = ({ setUserId }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const history = useHistory();
+    // const history = useHistory();
 
+    const nav=useNavigate();
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -16,12 +18,12 @@ const Login = ({ setUserId }) => {
         };
 
         try {
-            const res = await axios.post('http://localhost:5005/api/login', obj, { withCredentials: true });
+            const res = await axios.post('http://localhost:5050/api/login', obj, { withCredentials: true });
 
             setUserId(res.data.data[0]._id);
 
             if (res.data.data[0].role === "0x88" || res.data.data[0].role === "0x01") {
-                history.push('/products');
+               nav('/products')
             }
         } catch (error) {
             console.error('Error logging in:', error);
