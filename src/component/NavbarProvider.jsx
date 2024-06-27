@@ -1,16 +1,16 @@
-import Footer from "./Footer"
-import Navbar from "./Navbar"
-
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 const NavbarProvider = ({children}) => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
         <Navbar />
-        {children}
-
+        <main className="flex-grow">
+            {children}
+        </main>
         <Footer />
     </div>
-  )
+  );
 }
 
-export default NavbarProvider
+export default NavbarProvider;

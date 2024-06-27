@@ -39,6 +39,12 @@ const Products = ({ setCart, cart }) => {
             setCart((prev) => [...prev, sendProduct])
         }
     };
+    useEffect(() => {
+        if (cart.length > 0) {
+            const stringifydata = JSON.stringify(cart)
+            localStorage.setItem('cart', stringifydata)
+        }
+    }, [cart])
 
     return (
         <div className="container mx-auto px-4 py-8">

@@ -9,21 +9,25 @@ import Register from "./component/Rejister"
 import Cart from "./component/Cart"
 import Checkout from "./component/Checkout"
 import OrderSummary from "./component/OrderSummary"
+import ProductDetail from "./component/ProductDetails"
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 const App = () => {
   const [id, setUserId] = useState('')
   const [cart, setCart] = useState([])
-  useEffect(() => {
-    const stringifydata = JSON.stringify(cart)
-    localStorage.setItem('cart', stringifydata)
-  }, [cart])
+  
+useEffect(()=>{
+  if(localStorage.getItem('cart')){
+    setCart(JSON.parse(localStorage.getItem('cart')))
+  }
+},[])
   return (
     <NavbarProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products cart={cart} setCart={setCart} />} />
+        <Route path="/product/:id" element={<ProductDetail cart={cart} setCart={setCart} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
