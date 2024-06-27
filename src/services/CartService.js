@@ -30,3 +30,24 @@ export const checkout = async (checkoutData) => {
         throw error;
     }
 };
+
+export const addToCart = (product) => {
+
+    let flag = 0;
+    let product_initial = {}
+    const updatedproduct = cart.map((u) => {
+        if (u._id == product._id) {
+            flag = 1
+            return { ...u, quantity: u.quantity + 1 }
+
+        } else {
+            return u
+        }
+    })
+    setCart(updatedproduct);
+    if (!flag) {
+        const quantity = 1;
+        const sendProduct = { ...product, quantity }
+        setCart((prev) => [...prev, sendProduct])
+    }
+};
