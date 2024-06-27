@@ -6,7 +6,8 @@ const apiUrl = 'http://localhost:5050/api/products';
 export const getProducts = async () => {
     try {
         const response = await axios.get(apiUrl);
-        console.log(response.data);
+        // console.log(response.data);
+        console.log("ProService --> got products")
         return response.data.products;
     } catch (error) {
         console.error('Error fetching products:', error);
