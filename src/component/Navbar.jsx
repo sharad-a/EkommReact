@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     return (
 
-        <nav className="bg-gray-800 p-4">
+        <nav className="bg-gray-800 p-4 fixed w-full z-10 top-0">
             <div className="container mx-auto flex flex-wrap justify-between items-center">
                 {/* Logo or Brand */}
                 <Link to="/" className="text-white text-xl font-bold">EKommReact</Link>

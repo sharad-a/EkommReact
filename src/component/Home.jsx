@@ -37,9 +37,9 @@ const Home = () => {
                 Discover the best products at unbeatable prices.
             </motion.p>
 
-            {/* full size images */}
+            {/* full size images
             <div className="relative h-screen overflow-hidden ">
-                {/* Image Carousel */}
+                Image Carousel
                 <div className="absolute inset-0 flex items-center justify-center bg-slate-500">
                     <img
                         src={images[0]}
@@ -48,7 +48,7 @@ const Home = () => {
                     />
                 </div>
 
-                {/* Navigation Buttons */}
+                Navigation Buttons
                 <div className="absolute top-1/2 left-4 transform -translate-y-1/2 flex items-center">
                     <button
                         onClick={handlePrev}
@@ -65,7 +65,7 @@ const Home = () => {
                         Next
                     </button>
                 </div>
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {images.map((img, index) => (
