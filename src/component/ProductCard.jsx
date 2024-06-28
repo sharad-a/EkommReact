@@ -17,11 +17,11 @@ const ProductCard = ({ product, addToCart }) => {
                 <motion.img
                     src={product.prodImage}
                     alt={product.prodName}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-96 object-cover"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                 />
-                <div className="p-4">
+                <div className="px-4 py-2">
                     <motion.h3
                         className="text-lg font-bold mb-2"
                         whileHover={{ color: "#3b82f6" }}
