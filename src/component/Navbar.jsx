@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { FaReact } from "react-icons/fa";
 
 const Navbar = () => {
     return (
@@ -6,7 +7,12 @@ const Navbar = () => {
         <nav className="bg-gray-800 p-4 fixed w-full z-10 top-0">
             <div className="container mx-auto flex flex-wrap justify-between items-center">
                 {/* Logo or Brand */}
-                <Link to="/" className="text-white text-xl font-bold">EKommReact</Link>
+              <div className=' flex items-center'>
+                 
+              <FaReact className=' text-white'/>
+              <Link to="/" className="text-white text-xl font-bold ml-3"> EKommReact</Link>
+              </div>
+         
 
                 {/* Responsive Toggle Button */}
                 <div className="block lg:hidden">
