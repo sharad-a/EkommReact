@@ -26,10 +26,13 @@ const nav = useNavigate();
       if (response.status === 200) {
         console.log("Registration successful");
         // history.push("/login");
-        nav('/register');
+        alert('User registered Successfully!!')
+        nav('/login');
       }
     } catch (err) {
+      alert('Error to register user!!')
       setError(err.response.data.message);
+      nav('/register');
     }
   };
 

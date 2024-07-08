@@ -8,7 +8,7 @@ const Login = ({ setUserId }) => {
     const [password, setPassword] = useState('');
     // const history = useHistory();
 
-    const nav=useNavigate();
+    const nav = useNavigate();
     const onSubmit = async (e) => {
         e.preventDefault();
 
@@ -21,9 +21,14 @@ const Login = ({ setUserId }) => {
             const res = await axios.post('http://localhost:5050/api/login', obj, { withCredentials: true });
 
             setUserId(res.data.data[0]._id);
+            console.log('(login)->localStorage-userId -->', res.data.data[0]._id);
+
+            localStorage.setItem('userId', res.data.data[0]._id);
+            // console.log('get from ls', localStorage.getItem('userId'));
 
             if (res.data.data[0].role === "0x88" || res.data.data[0].role === "0x01") {
-               nav('/products')
+                alert('User logged in successfully');
+                nav('/products')
             }
         } catch (error) {
             console.error('Error logging in:', error);
@@ -31,7 +36,7 @@ const Login = ({ setUserId }) => {
     };
 
     return (
-        <div className="login-container flex justify-center items-center">
+        <div className=" min-h-screen flex items-center justify-center bg-gray-100">
             <div className="max-w-md w-full bg-white p-8 rounded shadow-md">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">Login</h2>
                 <form onSubmit={onSubmit}>

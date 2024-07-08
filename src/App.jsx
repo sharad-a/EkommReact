@@ -30,7 +30,7 @@ useEffect(()=>{
         <Route path="/product/:id" element={<ProductDetail cart={cart} setCart={setCart} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Checkout setCart={setCart}/>} />
         <Route path="/order-summary" element={<OrderSummary />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login setUserId={setUserId} />} />
