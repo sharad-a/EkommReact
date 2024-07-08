@@ -41,6 +41,7 @@ const Products = ({ setCart, cart }) => {
     };
     useEffect(() => {
         if (cart.length > 0) {
+            console.log(cart)
             const stringifydata = JSON.stringify(cart)
             localStorage.setItem('cart', stringifydata)
         }

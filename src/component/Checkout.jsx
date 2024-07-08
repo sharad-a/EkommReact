@@ -1,8 +1,7 @@
-// Checkout.jsx
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-const Checkout = () => {
-    const nav=useNavigate();
+const Checkout = ({setCart}) => {
+    const nav = useNavigate();
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [checkoutData, setCheckoutData] = useState({
@@ -37,7 +36,6 @@ const Checkout = () => {
 
     const confirmOrder = (e) => {
         e.preventDefault();
-        // Handle order confirmation logic here
         console.log('Order confirmed:', checkoutData, cartItems);
         // Clear cart and checkout data
         setCartItems([]);
@@ -50,8 +48,11 @@ const Checkout = () => {
             cvv: '',
         });
         alert('Your order is confirmed')
-        const data=[];
-        localStorage.setItem('cart',data);
+        const data = [];
+        localStorage.setItem('cart', data);
+        setCart([])
+        console.log(localStorage.getItem('cart'));
+
         nav('/products')
     };
 
@@ -77,57 +78,57 @@ const Checkout = () => {
                 <form onSubmit={confirmOrder}>
                     <div className="mb-4">
                         <label className="block text-gray-700">Name</label>
-                        <input 
-                            type="text" 
-                            name="name" 
+                        <input
+                            type="text"
+                            name="name"
                             value={checkoutData.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border rounded" 
-                            required 
+                            className="w-full px-4 py-2 border rounded"
+                            required
                         />
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700">Address</label>
-                        <input 
-                            type="text" 
-                            name="address" 
+                        <input
+                            type="text"
+                            name="address"
                             value={checkoutData.address}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border rounded" 
-                            required 
+                            className="w-full px-4 py-2 border rounded"
+                            required
                         />
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700">Card Number</label>
-                        <input 
-                            type="text" 
-                            name="cardNumber" 
+                        <input
+                            type="text"
+                            name="cardNumber"
                             value={checkoutData.cardNumber}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border rounded" 
-                            required 
+                            className="w-full px-4 py-2 border rounded"
+                            required
                         />
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700">Expiration Date</label>
-                        <input 
-                            type="text" 
-                            name="expirationDate" 
+                        <input
+                            type="text"
+                            name="expirationDate"
                             value={checkoutData.expirationDate}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border rounded" 
-                            required 
+                            className="w-full px-4 py-2 border rounded"
+                            required
                         />
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700">CVV</label>
-                        <input 
-                            type="text" 
-                            name="cvv" 
+                        <input
+                            type="text"
+                            name="cvv"
                             value={checkoutData.cvv}
                             onChange={handleChange}
-                            className="w-full px-4 py-2 border rounded" 
-                            required 
+                            className="w-full px-4 py-2 border rounded"
+                            required
                         />
                     </div>
                     <button type="submit" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
